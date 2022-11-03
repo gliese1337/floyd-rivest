@@ -3,14 +3,17 @@
   "version": "1.0.1",
   "description": "The Floyd-Rivest k-smallest selection algorithm.",
   "license": "MIT",
-  "main": "dist/floyd-rivest.js",
-  "types": "dist/floyd-rivest.d.ts",
+  "main": "bin/index.js",
   "files": [
-    "dist/**/*"
+    "bin/index.js",
+    "bin/index.d.ts"
   ],
   "scripts": {
-    "prepare": "npm run build",
-    "build": "node ./node_modules/typescript/bin/tsc"
+    "test": "mocha -r ts-node/register test/**/*-test.ts",
+    "build": "tsc",
+    "lint": "eslint . --ext .ts --fix",
+    "minify": "jsmin -o bin/index.min.js bin/index.js && del bin\\index.js && move bin\\index.min.js bin\\index.js",
+    "prepare": "tsc && npm test && npm run minify"
   },
   "repository": {
     "type": "git",
@@ -27,6 +30,16 @@
   },
   "homepage": "https://github.com/gliese1337/floyd-rivest#readme",
   "devDependencies": {
-    "typescript": "^3.3.3333"
+    "@types/chai": "^4.2.14",
+    "@types/mocha": "^8.0.4",
+    "@types/node": "^18.11.9",
+    "@typescript-eslint/eslint-plugin": "^4.10.0",
+    "@typescript-eslint/parser": "^4.10.0",
+    "chai": "^4.2.0",
+    "eslint": "^7.15.0",
+    "jsmin": "^1.0.1",
+    "mocha": "^8.2.1",
+    "ts-node": "^9.1.1",
+    "typescript": "^3.9.7"
   }
 }
