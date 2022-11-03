@@ -1,6 +1,6 @@
 {
   "name": "floyd-rivest",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "The Floyd-Rivest k-smallest selection algorithm.",
   "license": "MIT",
   "main": "bin/index.js",
