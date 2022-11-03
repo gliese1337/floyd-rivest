@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import { select } from '../src';
 
 describe("Floyd-Rivest Select Tests", () => {
-  for (let t = 1; t <= 20; t++) {
+  for (let t = 1; t <= 50; t++) {
     const items = Array.from({ length: 2048 }, () => (Math.random()*1024)|0);
     const sorted = [...items].sort((a,b) => a-b);
     for (let k = 64; k <= 1536; k += 64) {
